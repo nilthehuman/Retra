@@ -137,15 +137,23 @@ namespace Retra {
     {
         glutTimerFunc( self->moveAndTurnTime, &moveAndTurnCamera, 0 );
 
-        if ( self->keys.w     && !self->keys.s     ) self->camera->move( -moveStep, Camera::AXIS_Z );
-        if ( self->keys.a     && !self->keys.d     ) self->camera->move( -moveStep, Camera::AXIS_X );
-        if ( self->keys.s     && !self->keys.w     ) self->camera->move(  moveStep, Camera::AXIS_Z );
-        if ( self->keys.d     && !self->keys.a     ) self->camera->move(  moveStep, Camera::AXIS_X );
+        if ( self->keys.w     && !self->keys.s     ) self->camera->move(    -moveStep, Camera::AXIS_Z );
+        if ( self->keys.W     && !self->keys.S     ) self->camera->move( -10*moveStep, Camera::AXIS_Z );
+        if ( self->keys.a     && !self->keys.d     ) self->camera->move(    -moveStep, Camera::AXIS_X );
+        if ( self->keys.A     && !self->keys.D     ) self->camera->move( -10*moveStep, Camera::AXIS_X );
+        if ( self->keys.s     && !self->keys.w     ) self->camera->move(     moveStep, Camera::AXIS_Z );
+        if ( self->keys.S     && !self->keys.W     ) self->camera->move(  10*moveStep, Camera::AXIS_Z );
+        if ( self->keys.d     && !self->keys.a     ) self->camera->move(     moveStep, Camera::AXIS_X );
+        if ( self->keys.D     && !self->keys.A     ) self->camera->move(  10*moveStep, Camera::AXIS_X );
 
-        if ( self->keys.h     && !self->keys.l     ) self->camera->move( -moveStep, Camera::AXIS_X );
-        if ( self->keys.j     && !self->keys.k     ) self->camera->move( -moveStep, Camera::AXIS_Y );
-        if ( self->keys.k     && !self->keys.j     ) self->camera->move(  moveStep, Camera::AXIS_Y );
-        if ( self->keys.l     && !self->keys.h     ) self->camera->move(  moveStep, Camera::AXIS_X );
+        if ( self->keys.h     && !self->keys.l     ) self->camera->move(    -moveStep, Camera::AXIS_X );
+        if ( self->keys.H     && !self->keys.L     ) self->camera->move( -10*moveStep, Camera::AXIS_X );
+        if ( self->keys.j     && !self->keys.k     ) self->camera->move(    -moveStep, Camera::AXIS_Y );
+        if ( self->keys.J     && !self->keys.K     ) self->camera->move( -10*moveStep, Camera::AXIS_Y );
+        if ( self->keys.k     && !self->keys.j     ) self->camera->move(     moveStep, Camera::AXIS_Y );
+        if ( self->keys.K     && !self->keys.J     ) self->camera->move(  10*moveStep, Camera::AXIS_Y );
+        if ( self->keys.l     && !self->keys.h     ) self->camera->move(     moveStep, Camera::AXIS_X );
+        if ( self->keys.L     && !self->keys.H     ) self->camera->move(  10*moveStep, Camera::AXIS_X );
 
         if ( self->keys.up    && !self->keys.down  ) self->camera->move(  moveStep, Camera::AXIS_Y );
         if ( self->keys.down  && !self->keys.up    ) self->camera->move( -moveStep, Camera::AXIS_Y );
@@ -164,13 +172,21 @@ namespace Retra {
     {
         switch ( key ) {
             case 'w': self->keys.w = true; break;
+            case 'W': self->keys.W = true; break;
             case 'a': self->keys.a = true; break;
+            case 'A': self->keys.A = true; break;
             case 's': self->keys.s = true; break;
+            case 'S': self->keys.S = true; break;
             case 'd': self->keys.d = true; break;
+            case 'D': self->keys.D = true; break;
             case 'h': self->keys.h = true; break;
+            case 'H': self->keys.H = true; break;
             case 'j': self->keys.j = true; break;
+            case 'J': self->keys.J = true; break;
             case 'k': self->keys.k = true; break;
+            case 'K': self->keys.K = true; break;
             case 'l': self->keys.l = true; break;
+            case 'L': self->keys.L = true; break;
 
             case 'x':
                 self->keys.x = true;
@@ -204,6 +220,7 @@ namespace Retra {
                 break;
             case  27: // Escape key
             case 'q':
+            case 'Q':
                 glutDestroyWindow( self->windowId );
                 self->windowId = -1;
                 break;
@@ -215,22 +232,22 @@ namespace Retra {
     void GUI::handleKeyRelease( unsigned char key, int, int )
     {
         switch ( key ) {
-            case 'w':
-            case 'W': self->keys.w = false; break;
-            case 'a':
-            case 'A': self->keys.a = false; break;
-            case 's':
-            case 'S': self->keys.s = false; break;
-            case 'd':
-            case 'D': self->keys.d = false; break;
-            case 'h':
-            case 'H': self->keys.h = false; break;
-            case 'j':
-            case 'J': self->keys.j = false; break;
-            case 'k':
-            case 'K': self->keys.k = false; break;
-            case 'l':
-            case 'L': self->keys.l = false; break;
+            case 'w': self->keys.w = false; break;
+            case 'W': self->keys.W = false; break;
+            case 'a': self->keys.a = false; break;
+            case 'A': self->keys.A = false; break;
+            case 's': self->keys.s = false; break;
+            case 'S': self->keys.S = false; break;
+            case 'd': self->keys.d = false; break;
+            case 'D': self->keys.D = false; break;
+            case 'h': self->keys.h = false; break;
+            case 'H': self->keys.H = false; break;
+            case 'j': self->keys.j = false; break;
+            case 'J': self->keys.J = false; break;
+            case 'k': self->keys.k = false; break;
+            case 'K': self->keys.K = false; break;
+            case 'l': self->keys.l = false; break;
+            case 'L': self->keys.L = false; break;
 
             case 'x': self->keys.x = false; break;
             case 'X': self->keys.X = false; break;
@@ -239,7 +256,8 @@ namespace Retra {
             case 'z': self->keys.z = false; break;
             case 'Z': self->keys.Z = false; break;
             case  27: // Escape key
-            case 'q': glutDestroyWindow( self->windowId ); self->windowId = -1; break;
+            case 'q':
+            case 'Q': glutDestroyWindow( self->windowId ); self->windowId = -1; break;
             default : ;
         }
     }

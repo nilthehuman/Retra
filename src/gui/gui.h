@@ -35,15 +35,15 @@ namespace Retra {
     class GUI {
 
         struct KeysPressed {
-            bool w, a, s, d;
-            bool h, j, k, l;
+            bool w, W, a, A, s, S, d, D;
+            bool h, H, j, J, k, K, l, L;
             bool up, down, left, right;
             bool x, X, y, Y, z, Z;
 
             bool any() const
             {
-                if ( w || a || s || d ||
-                     h || j || k || l ||
+                if ( w || W || a || A || s || S || d || D ||
+                     h || H || j || J || k || K || l || L ||
                      up || down || left || right ||
                      x || X || y || Y || z || Z )
                     return true;
@@ -75,7 +75,9 @@ namespace Retra {
             assert( !self );
             self = this;
             keys.w  = keys.a    = keys.s    = keys.d     = false;
+            keys.W  = keys.A    = keys.S    = keys.D     = false;
             keys.h  = keys.j    = keys.k    = keys.l     = false;
+            keys.H  = keys.J    = keys.K    = keys.L     = false;
             keys.up = keys.down = keys.left = keys.right = false;
             keys.x  = keys.X    = keys.y    = keys.Y     =
                                   keys.z    = keys.Z     = false;
