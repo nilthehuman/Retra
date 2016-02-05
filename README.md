@@ -45,8 +45,6 @@ whatever is convenient for you.
 
 Go to the directory you want to download to and copy the git repo like so:
 ```bash
-mkdir Retra
-cd Retra
 git clone git://github.com/nilthehuman/Retra.git
 ```
 
@@ -54,8 +52,6 @@ git clone git://github.com/nilthehuman/Retra.git
 
 Go to the directory you want to download to, get the tarball and extract it:
 ```bash
-mkdir Retra
-cd Retra
 wget [...]
 gunzip [file]
 tar -xvf [file]
