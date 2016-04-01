@@ -38,8 +38,9 @@ The best way to install __Retra__ is to build it from source on your machine.
 The following instructions are for Unix-like operating systems but __Retra__
 should be easy to build on Windows machines too with [MinGW][1]. You may have
 to change the line endings from LF to CRLF on Windows.
-The source is available on GitHub or as a tarball from [__TBA__]. Choose
-whatever is convenient for you.
+The source is available on GitHub or as a tarball from a web server run by the
+Budapest University of Technology and Economics. Choose whatever is convenient
+for you.
 
 #### A. / Cloning from GitHub
 
@@ -52,9 +53,8 @@ git clone git://github.com/nilthehuman/Retra.git
 
 Go to the directory you want to download to, get the tarball and extract it:
 ```bash
-wget [...]
-gunzip [file]
-tar -xvf [file]
+wget users.hszk.bme.hu/~ad767/Retra.tar.gz
+tar -xvf Retra.tar.gz
 ```
 
 #### Compiling
