@@ -53,8 +53,8 @@ git clone git://github.com/nilthehuman/Retra.git
 
 Go to the directory you want to download to, get the tarball and extract it:
 ```bash
-wget users.hszk.bme.hu/~ad767/Retra.tar.gz
-tar -xvf Retra.tar.gz
+wget users.hszk.bme.hu/~ad767/Retra_src.tar.gz
+tar -xvf Retra_src.tar.gz
 ```
 
 #### Compiling
@@ -86,9 +86,18 @@ The following compilers have been tested and should work fine:
   * clang++ ([with OpenMP][2])
   * g++
 
-### Pre-built packages
+### Pre-built binaries
 
-There are no pre-built binary packages available at this time.
+You can find a tarball of pre-built binary executables on BUTE's web server:
+
+```bash
+wget users.hszk.bme.hu/~ad767/Retra_bin.tar.gz
+tar -xvf Retra_bin.tar.gz
+```
+
+These binaries were compiled and linked on my Debian Jessie machine. If you're
+having issues using them on your own system please try compiling __Retra__ from
+source instead (see above).
 
 ## Dependencies
 
