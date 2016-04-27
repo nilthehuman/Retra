@@ -2,7 +2,7 @@
 
 Version 1.3.0
 
-(__Warning__: this README was last updated in May 2015 and may be out of date.)
+(__Warning__: this README was last updated in April 2016 and may be out of date.)
 
 ### What it is
 
