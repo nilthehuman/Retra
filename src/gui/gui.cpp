@@ -105,18 +105,17 @@ namespace Retra {
             return;
         glutTimerFunc( self->refreshTime, &refresh, 0 );
         const clock_t now = clock();
-        const Camera::RenderInfo* renderInfo = self->camera->render( self->refreshTime * 0.8, self->depth, self->rrLimit, self->gamma );
-        if ( self->keys.any() || renderInfo->sceneChanged )
+        const Camera::RenderInfo renderInfo = self->camera->render( self->refreshTime * 0.8, self->depth, self->rrLimit, self->gamma );
+        if ( self->keys.any() || renderInfo.sceneChanged )
         {
             self->lastCameraClear               = now;
             self->hudClockErrorSinceCameraClear = 0;
             self->hudFrames                     = 0;
         }
-        self->clockError                    += renderInfo->clockError;
-        self->hudClockErrorSinceHudRefresh  += renderInfo->clockError;
-        self->hudClockErrorSinceCameraClear += renderInfo->clockError;
-        self->hudSpp                         = renderInfo->sppSoFar;
-        delete renderInfo;
+        self->clockError                    += renderInfo.clockError;
+        self->hudClockErrorSinceHudRefresh  += renderInfo.clockError;
+        self->hudClockErrorSinceCameraClear += renderInfo.clockError;
+        self->hudSpp                         = renderInfo.sppSoFar;
         glutPostRedisplay();
     }
 

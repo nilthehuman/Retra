@@ -97,7 +97,7 @@ namespace Retra {
     }
 
     // Keep refining the image until a given time limit is reached
-    const Camera::RenderInfo* Camera::render( int renderTime, int depth, double rrLimit, double gamma )
+    const Camera::RenderInfo Camera::render( int renderTime, int depth, double rrLimit, double gamma )
     {
         const bool sceneChanged = scene->isChanged();
         if ( sceneChanged )
@@ -153,10 +153,7 @@ namespace Retra {
             }
         }
         delete[] pixelColorSum;
-        RenderInfo* renderInfo   = new RenderInfo;
-        renderInfo->clockError   = clockError; // Return clock's measurement error due to multithreading
-        renderInfo->sppSoFar     = sppSoFar;
-        renderInfo->sceneChanged = sceneChanged;
+        const RenderInfo renderInfo( clockError, sppSoFar, sceneChanged );
         rendering = false;
         return renderInfo;
     }

@@ -37,6 +37,12 @@ namespace Retra {
 
         // The GUI's going to need these
         struct RenderInfo {
+            RenderInfo( int clockError, int sppSoFar, bool sceneChanged )
+                : clockError( clockError )
+                , sppSoFar( sppSoFar )
+                , sceneChanged( sceneChanged )
+            { }
+
             int  clockError;
             int  sppSoFar;
             bool sceneChanged;
@@ -92,7 +98,7 @@ namespace Retra {
 
         void clear();
         void capture( int spp, int depth, double rrLimit );
-        const RenderInfo* render ( int renderTime, int depth, double rrLimit, double gamma = 1 );
+        const RenderInfo render( int renderTime, int depth, double rrLimit, double gamma = 1 );
         void gammaCorrect( double gamma );
 
         void writePixels( std::ostream& os ) const;
