@@ -2,7 +2,8 @@
 
 Version 1.3.0
 
-(__Warning__: this README was last updated in April 2016 and may be out of date.)
+(__Warning__: this README was last updated in November 2016 and may be out of
+date.)
 
 ### What it is
 
@@ -27,8 +28,8 @@ about computer graphics or prove that you can build a path tracer on your own.
 
 ### I need __Silence__, not this bullshit
 
-Head on over to [__TBA__] where __Silence__ and its full source code is
-available under the same license terms as __Retra__.
+Head on over to <https://github.com/nilthehuman/Silence> where __Silence__ and
+its full source code is available under the same license terms as __Retra__.
 
 ## Installation
 
@@ -282,7 +283,7 @@ Email: nil.the.human at gmail dot com
 
 GitHub: https://github.com/nilthehuman
 
-#### __Q.__: __Retra__ doesn't parse my scene file right.
+#### __Q.__: __Retra__ won't parse my scene file right.
 __A.:__ You're probably missing a comma (`,`) between entries or a closing brace
 (`}`) somewhere. Also please note that JSON uses brackets (`[`...`]`) instead of
 parentheses (`(`...`)`) for tuples and lists. Try opening the file in a
