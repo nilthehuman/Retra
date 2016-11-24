@@ -61,7 +61,6 @@ namespace Retra {
     {
         object->move( (end - begin) / PI * sin(phase) * dt );
         phase += 2.0 * PI * dt / period; // TODO: don't let phase overflow.
-        std::cout << "move: " << (end - begin) * sin(phase) * dt << std::endl;
     }
 
 }
