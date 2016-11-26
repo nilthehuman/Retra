@@ -219,7 +219,7 @@ namespace Retra {
                 Triplet emission = lightPart->getEmission( -toLightPoint );
                 if ( RGB::Black == emission )
                     continue;
-                const Ray    shadowRay( this, surfacePoint, toLightPoint, RGB::Black, 1, INF );
+                const Ray    shadowRay( this, surfacePoint + toLightPoint * EPSILON, toLightPoint, RGB::Black, 1, INF );
                 const double distance = (lightPoint - surfacePoint).length() - EPSILON;
                 double t = INF;
                 bool occluded = false;
