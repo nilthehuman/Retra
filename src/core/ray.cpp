@@ -32,14 +32,14 @@ namespace Retra {
 
     double Ray::traceToNextIntersection()
     {
-        assert( 0 < depth );
+        assert( 0 <= depth );
 
         const double nearestT = findNearestIntersection();
         if ( lightHit )
         {
             // Hit a lightsource. This path ends here
             paint( lightHit->getEmission() );
-            depth = 0;
+            depth = -1;
         }
         else if ( !thingHit )
         {
@@ -58,7 +58,7 @@ namespace Retra {
 
     RGB Ray::trace()
     {
-        if ( depth < 1 )
+        if ( depth < 0 )
             return color;
         if ( RGB::Black == color )
             return RGB::Black;
@@ -95,7 +95,7 @@ namespace Retra {
     {
         const Vector surfaceNormal = thingPartHit->getNormal( origin );
         RGB currentColor = color * scene->getDirectLight( origin, surfaceNormal );
-        if ( russianRoulette() )
+        if ( depth < 1 || russianRoulette() )
             return currentColor;
         direction = Vector::random( surfaceNormal );
         traceToNextIntersection();
@@ -127,7 +127,7 @@ namespace Retra {
         direction -= surfaceNormal * (direction * surfaceNormal) * 2;
         const double cosTheta = direction * surfaceNormal;
         paint( RGB::White * schlick( n1, n2, cosTheta ) );
-        if ( russianRoulette() )
+        if ( depth < 1 || russianRoulette() )
             return color;
         traceToNextIntersection();
         return trace();
@@ -135,7 +135,7 @@ namespace Retra {
 
     RGB Ray::bounceReflect()
     {
-        if ( russianRoulette() )
+        if ( depth < 1 || russianRoulette() )
             return color;
         const Vector surfaceNormal = thingPartHit->getNormal( origin );
         direction -= surfaceNormal * (direction * surfaceNormal) * 2;
@@ -147,7 +147,7 @@ namespace Retra {
     {
         // en.wikipedia.org/wiki/Snell's_law
         // http://graphics.stanford.edu/courses/cs148-10-summer/docs/2006--degreve--reflection_refraction.pdf
-        if ( russianRoulette() )
+        if ( depth < 1 || russianRoulette() )
             return color;
         const bool into = insideThings.empty() || insideThings.top() != thingHit;
         double n1;
