@@ -144,7 +144,7 @@ void parseArgs( int argc, char* argv[], struct arguments* args )
             if ( argc <= ++i )
                 usage( args->progname );
             args->rrLimit = atof( argv[i] );
-            if ( !args->rrLimit )
+            if ( args->rrLimit < 0 )
                 usage( args->progname );
         }
         else if( !strcmp(argv[i], "-g") || !strcmp(argv[i], "--gamma") )
