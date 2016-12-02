@@ -59,7 +59,7 @@ namespace Retra {
     RGB Ray::trace()
     {
         if ( depth < 0 )
-            return color;
+            return RGB::Black;
         if ( RGB::Black == color )
             return RGB::Black;
 
@@ -128,7 +128,7 @@ namespace Retra {
         const double cosTheta = direction * surfaceNormal;
         paint( RGB::White * schlick( n1, n2, cosTheta ) );
         if ( depth < 1 || russianRoulette() )
-            return color;
+            return RGB::Black;
         traceToNextIntersection();
         return trace();
     }
@@ -136,7 +136,7 @@ namespace Retra {
     RGB Ray::bounceReflect()
     {
         if ( depth < 1 || russianRoulette() )
-            return color;
+            return RGB::Black;
         const Vector surfaceNormal = thingPartHit->getNormal( origin );
         direction -= surfaceNormal * (direction * surfaceNormal) * 2;
         traceToNextIntersection();
@@ -148,7 +148,7 @@ namespace Retra {
         // en.wikipedia.org/wiki/Snell's_law
         // http://graphics.stanford.edu/courses/cs148-10-summer/docs/2006--degreve--reflection_refraction.pdf
         if ( depth < 1 || russianRoulette() )
-            return color;
+            return RGB::Black;
         const bool into = insideThings.empty() || insideThings.top() != thingHit;
         double n1;
         if ( insideThings.empty() )
