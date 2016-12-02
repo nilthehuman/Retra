@@ -66,13 +66,17 @@ namespace Retra {
         }
     }
 
-    bool Ray::russianRoulette() const
+    bool Ray::russianRoulette()
     {
         // Russian roulette is a common heuristic for path termination
         // Here we use a variant based on current color intensity
         // A lower rrLimit keeps more paths alive
-        if ( max(color.x, max(color.y, color.z)) < (double)std::rand() * rrLimit / RAND_MAX )
+        const double maxColor = max( color.x, max(color.y, color.z) );
+        if ( rrLimit <= maxColor )
+            return false;
+        if ( maxColor < (double)std::rand() * rrLimit / RAND_MAX )
             return true;
+        color *= (rrLimit / maxColor);
         return false;
     }
 

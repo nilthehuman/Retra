@@ -68,7 +68,7 @@ namespace Retra {
     private:
         void    paint( const Triplet& otherColor ) { color *= otherColor; } // Incorporate the color of a Surface that was hit
 
-        inline bool russianRoulette() const;
+        inline bool russianRoulette();
         RGB     bounceDiffuse();
         RGB     bounceMetallic();
         RGB     bounceReflect();
