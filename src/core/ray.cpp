@@ -30,40 +30,25 @@
 
 namespace Retra {
 
-    double Ray::traceToNextIntersection()
+    RGB Ray::trace()
     {
-        assert( 0 <= depth );
+        if ( RGB::Black == color || depth < 0 )
+            return RGB::Black;
 
-        const double nearestT = findNearestIntersection();
         if ( lightHit )
         {
             // Hit a lightsource. This path ends here
             paint( lightHit->getEmission() );
-            depth = -1;
+            return color;
         }
         else if ( !thingHit )
         {
             // Missed all surfaces. This path ends here
             paint( scene->getSky().color );
-            depth = -1;
+            return color;
         }
-        else
-        {
-            origin = (*this)[nearestT];
-            --depth;
-        }
-
-        return nearestT;
-    }
-
-    RGB Ray::trace()
-    {
-        if ( depth < 0 )
-            return RGB::Black;
-        if ( RGB::Black == color )
-            return RGB::Black;
-
         paint( thingHit->getColor() );
+        --depth;
 
         // Decide what the Surface will behave like this time
         switch ( thingHit->interact() )
@@ -192,8 +177,10 @@ namespace Retra {
         return trace();
     }
 
-    double Ray::findNearestIntersection()
+    void Ray::traceToNextIntersection()
     {
+        assert( 0 <= depth );
+
         lightHit     = NULL;
         lightPartHit = NULL;
         thingHit     = NULL;
@@ -225,7 +212,10 @@ namespace Retra {
                     }
 
         if ( thingHit || lightHit )
-            return nearestT;
+        {
+            origin = (*this)[nearestT];
+            return;
+        }
 
         // Check background Surfaces
         for ( ThingIt thing = scene->thingsBegin(); thing != scene->thingsEnd(); thing++ )
@@ -252,7 +242,7 @@ namespace Retra {
                         thingPartHit = NULL;
                     }
 
-        return nearestT;
+        origin = (*this)[nearestT];
     }
 
     double Ray::schlick( double n1, double n2, double cosTheta )

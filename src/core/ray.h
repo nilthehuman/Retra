@@ -62,7 +62,7 @@ namespace Retra {
 
         Vector operator[]( double t ) const { return origin + direction * t; }
 
-        double  traceToNextIntersection(); // Initial bounce to find the surface point the Camera sees
+        void    traceToNextIntersection(); // Initial bounce to find the surface point the Camera sees
         RGB     trace();                   // Trace the Ray all the way through
 
     private:
@@ -73,8 +73,6 @@ namespace Retra {
         RGB     bounceMetallic();
         RGB     bounceReflect();
         RGB     bounceRefract();
-
-        double  findNearestIntersection();
 
         static double schlick( double n1, double n2, double cosTheta );
 
