@@ -197,6 +197,10 @@ void parseArgs( int argc, char* argv[], struct arguments* args )
         {
             version();
         }
+        else if( argv[i][0] == '-' )
+        {
+            usage( args->progname );
+        }
         else
         {
             if( args->sceneFilename )
