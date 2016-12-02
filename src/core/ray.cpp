@@ -98,6 +98,7 @@ namespace Retra {
         if ( depth < 1 || russianRoulette() )
             return currentColor;
         direction = Vector::random( surfaceNormal );
+        paint( RGB::White * (direction * surfaceNormal) );
         traceToNextIntersection();
         return currentColor + trace();
     }
