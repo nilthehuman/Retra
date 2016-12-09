@@ -1,0 +1,211 @@
+{
+
+    "scene": [
+
+        { "lighttriangle": {
+            "emission": [1177.6, 998.4, 512.0],
+            "background": false,
+            "backculled": true,
+            "points": [ [376, 548.8, 200],
+                        [376, 548.8, 360],
+                        [180, 548.8, 360] ]
+            }
+        },
+        { "lighttriangle": {
+            "emission": [1177.6, 998.4, 512.0],
+            "background": false,
+            "backculled": true,
+            "points": [ [376, 548.8, 200],
+                        [180, 548.8, 360],
+                        [180, 548.8, 200] ]
+            }
+        },
+
+
+        { "triangle": {
+            "material": {
+                "character": {
+                    "diffuse":    1,
+                    "metallic":   0,
+                    "reflecting": 0,
+                    "refractive": 0
+                },
+                "color": [0.75, 0.75, 0.75]
+            },
+            "background": true,
+            "backculled": true,
+            "points": [ [  0, 0,   0  ],
+                        [  0, 0, 559.2],
+                        [556, 0,   0  ] ]
+            }
+        },
+        { "triangle": {
+            "material": {
+                "character": {
+                    "diffuse":    1,
+                    "metallic":   0,
+                    "reflecting": 0,
+                    "refractive": 0
+                },
+                "color": [0.75, 0.75, 0.75]
+            },
+            "background": true,
+            "backculled": true,
+            "points": [ [556, 0, 559.2],
+                        [556, 0,   0  ],
+                        [  0, 0, 559.2] ]
+            }
+        },
+
+        { "triangle": {
+            "material": {
+                "character": {
+                    "diffuse":    1,
+                    "metallic":   0,
+                    "reflecting": 0,
+                    "refractive": 0
+                },
+                "color": [0.75, 0.75, 0.75]
+            },
+            "background": true,
+            "backculled": true,
+            "points": [ [  0, 548.8,   0  ],
+                        [556, 548.8,   0  ],
+                        [  0, 548.8, 559.2] ]
+            }
+        },
+        { "triangle": {
+            "material": {
+                "character": {
+                    "diffuse":    1,
+                    "metallic":   0,
+                    "reflecting": 0,
+                    "refractive": 0
+                },
+                "color": [0.75, 0.75, 0.75]
+            },
+            "background": true,
+            "backculled": true,
+            "points": [ [556, 548.8, 559.2],
+                        [  0, 548.8, 559.2],
+                        [556, 548.8,   0  ] ]
+            }
+        },
+
+        { "triangle": {
+            "material": {
+                "character": {
+                    "diffuse":    1,
+                    "metallic":   0,
+                    "reflecting": 0,
+                    "refractive": 0
+                },
+                "color": [0.75, 0.75, 0.75]
+            },
+            "background": true,
+            "backculled": true,
+            "points": [ [  0,   0,   559.2],
+                        [  0, 548.8, 559.2],
+                        [556, 548.8, 559.2] ]
+            }
+        },
+        { "triangle": {
+            "material": {
+                "character": {
+                    "diffuse":    1,
+                    "metallic":   0,
+                    "reflecting": 0,
+                    "refractive": 0
+                },
+                "color": [0.75, 0.75, 0.75]
+            },
+            "background": true,
+            "backculled": true,
+            "points": [ [556,   0,   559.2],
+                        [  0,   0,   559.2],
+                        [556, 548.8, 559.2] ]
+            }
+        },
+
+        { "triangle": {
+            "material": {
+                "character": {
+                    "diffuse":    1,
+                    "metallic":   0,
+                    "reflecting": 0,
+                    "refractive": 0
+                },
+                "color": [0.16, 0.4, 0.11]
+            },
+            "background": true,
+            "backculled": true,
+            "points": [ [ 0,   0,     0  ],
+                        [ 0, 548.8,   0  ],
+                        [ 0, 548.8, 559.2] ]
+            }
+        },
+        { "triangle": {
+            "material": {
+                "character": {
+                    "diffuse":    1,
+                    "metallic":   0,
+                    "reflecting": 0,
+                    "refractive": 0
+                },
+                "color": [0.16, 0.4, 0.11]
+            },
+            "background": true,
+            "backculled": true,
+            "points": [ [ 0,   0,   559.2],
+                        [ 0,   0,     0  ],
+                        [ 0, 548.8, 559.2] ]
+            }
+        },
+
+        { "triangle": {
+            "material": {
+                "character": {
+                    "diffuse":    1,
+                    "metallic":   0,
+                    "reflecting": 0,
+                    "refractive": 0
+                },
+                "color": [0.64, 0.063, 0.061]
+            },
+            "background": true,
+            "backculled": true,
+            "points": [ [ 556,   0,   559.2],
+                        [ 556, 548.8, 559.2],
+                        [ 556, 548.8,   0  ] ]
+            }
+        },
+        { "triangle": {
+            "material": {
+                "character": {
+                    "diffuse":    1,
+                    "metallic":   0,
+                    "reflecting": 0,
+                    "refractive": 0
+                },
+                "color": [0.64, 0.063, 0.061]
+            },
+            "background": true,
+            "backculled": true,
+            "points": [ [ 556,   0,    0  ],
+                        [ 556,   0,  559.2],
+                        [ 556, 548.8,  0  ] ]
+            }
+        }
+
+
+    ],
+
+    "camera": {
+        "viewpoint": [278, 273, -800],
+        "screen": [ [556, 548.8, 0], [0, 548.8, 0],
+                    [556, 0, 0], [0, 0, 0] ],
+        "gridresolution": [512, 512]
+    }
+
+}
+
